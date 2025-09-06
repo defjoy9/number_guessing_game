@@ -30,8 +30,18 @@ while play_again == "yes":
     attempt = 0
 
     while attempt != chances:
+        # validating user input
+        while True:
+            try:
+                choice = int(input("Enter your choice: "))
+            except (ValueError, NameError):
+                print("Invalid input! Please enter a number between 1 and 100.")
+                continue
+            except Exception as e:
+                print("Encounted an unexpected error: {e}\nExiting...")
+                sys.exit()
+            break
 
-        choice = int(input("Enter your choice: "))
         attempt += 1
 
         if choice > pc_number:
