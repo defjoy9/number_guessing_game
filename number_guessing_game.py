@@ -25,7 +25,7 @@ while play_again == "yes":
     print("I'm thinking of a number between 1 and 100")
     print("Let's start the game!")
 
-    pc_number = random.randint(0,100)
+    pc_number = random.randint(1,100)
     guess = 0
     attempt = 0
 
@@ -34,22 +34,25 @@ while play_again == "yes":
         while True:
             try:
                 choice = int(input("Enter your choice: "))
+                if choice <= 0 or choice > 100:
+                    print("Invalid input! Please enter a number between 1 and 100.")
+                    continue
             except (ValueError, NameError):
                 print("Invalid input! Please enter a number between 1 and 100.")
                 continue
             except Exception as e:
-                print("Encounted an unexpected error: {e}\nExiting...")
+                print(f"Encounted an unexpected error: {e}\nExiting...")
                 sys.exit()
             break
 
         attempt += 1
 
         if choice > pc_number:
-            print(f"Incorrect! The number is greater than {choice}.")
-        elif choice < pc_number:
             print(f"Incorrect! The number is less than {choice}.")
+        elif choice < pc_number:
+            print(f"Incorrect! The number is greater than {choice}.")
         else:
-            continue
+            break
 
     if choice == pc_number:
         print(f"Congratulations! You guessed the correct number in {attempt} attempts.")
