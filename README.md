@@ -49,6 +49,8 @@ python number_guessing_game.py
 
 ## Usage Example
 
+![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/e7fccc91-0ad4-4a1a-8dbe-ca8a803ecaea)
+
 
 ## Inspiration
 
